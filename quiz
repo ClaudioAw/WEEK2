@@ -1,0 +1,99 @@
+include <stdio.h>
+#include <string.h>
+
+int main () {
+        int i=0,pt;
+        char risposta='\0';
+        int scelta_iniziale,scelta_finale;
+        char nome[10]={'\0'};
+        do
+                {
+            pt=0;
+            printf("\nBenvenuto al gioco! Rispondi alle domande\n");
+                        printf("\nInserisci il tuo nome: ");
+            scanf("%s", &nome);
+            while (strlen(nome)>10){
+                printf("\nTroppi caratteri.\nRiprova : ");
+                scanf("%s", &nome);
+            }
+            printf("\nPremi 1 per iniziare o 0 per uscire dal gioco: ");
+            scanf("%d", &scelta_iniziale);
+                if(scelta_iniziale==0)
+                        return 0;
+            printf(" %s, iniziamo!!\n", nome);
+            switch (scelta_iniziale){
+                    case 1: {
+                            while(i==0){
+                                        printf("\nQuante dita ci sono in una mano?\n 1)5;\n 2)10;\n 3)15.\nRisposta: ");
+                                        scanf("%c",&risposta);
+                                    if(risposta=='1'){
+                                            printf("\nCorretto!\n");
+                                            pt++;
+                                            i++;
+                                    }
+                                    else if (risposta=='2'){
+                                            printf("\nSbagliato. \n");
+                                            i++; 
+                                    }
+                                    else if (risposta=='3'){
+                                            printf("\nSbagliato. \n");
+                                            i++;
+                                    } 
+                                    else
+                                            printf("\nInserisci una risposta valida\n");
+                            }
+                            i=0;
+                            while(i==0){
+                                    printf("\nQuante dita ci sono in due mani?\n 1)5\n 2)15;\n 3)10.\nRisposta: ");
+                                    scanf("%c",&risposta);
+                                    if(risposta=='1'){
+                                            printf("\nSbagliato. \n");
+                                            i++;
+                                    }
+                                    else if (risposta=='2'){
+                                            printf("\nSbagliato. \n");
+                                            i++; 
+                                    }
+                                    else if (risposta=='3'){
+                                            printf("\nCorretto|\n");
+                                            pt++;
+                                            i++;
+                                    }   
+                                    else
+                                            printf("\nInserisci una risposta valida!\n");
+                            }
+                            i=0;
+                            while(i==0){
+                                    printf("\nQuante dita ci sono in 3 mani?\n 1)15\n 2)10;\n 3)20.\nRisposta: ");
+                                    scanf("%c",&risposta);
+                                    if(risposta=='1'){
+                                            printf("\nCorretto!\n");
+                                            pt++;
+                                            i++;
+                                    }
+                                    else if (risposta=='2'){
+                                            printf("\nSbagliato.\n");
+                                            i++; 
+                                    }
+                                    else if (risposta=='3'){
+                                            printf("\nSbagliato. \n");
+                                            i++;
+                                    }
+                                    else
+                                            printf("\nInserisci una risposta valida!\n");
+                            }
+                             
+                                    printf("\nComplimenti.Questo è il tuo punteggio: %d", pt);
+                            
+                                break;
+                    }
+            }
+            printf("\nVuoi rigiocare? Clicca 1 per rigiocare oppure 0 per uscire: ");
+            scanf("%d", &scelta_finale);
+        }
+            while(scelta_finale==1);
+        
+        return 0;
+} 
+
+                                    
