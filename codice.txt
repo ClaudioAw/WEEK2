@@ -1,0 +1,99 @@
+  GNU nano 6.3                                                    Esercizio_Weekend.c *                                                            
+#include <stdio.h> /*con il comando andiamo ad includere la libreria che 
+                    fornirà  al  programmatore delle funzioni o strutture di dati predefinite.*/
+
+
+
+
+void menu ();   
+void moltiplica ();
+void dividi ();
+void ins_string();
+
+int main ()  
+
+{
+        char scelta = {'\0'}; //la funzione char descrive un carattere di 1byte(8 bit)
+        menu ();
+        do{  /*Ho inserito  in int main  un do while in  modo che il blocco dell'istruzione 
+               Switch mi si ripetesse e non terminasse una volta eseguito o meno un caso*/
+        scanf ("%c", &scelta);/*era presente un errore, era scritto %d mentre a noi serviva %c perche fa riferimento a char*/
+        switch (scelta) 
+        {
+                case 'A':
+                moltiplica();
+                break;
+                case 'B':
+                dividi();
+                break;
+                case 'C':
+                ins_string();
+                break;
+                case 'D': /*ho inserito anche un case D per permettere all'utente di 
+                           scegliere se terminare la partita*/
+                return 0;
+                default : /*ho aggiunto un default nel caso in cui uno dei 4 Case non fosse
+                            digitato*/
+                printf("\nINSERIRE A per moltiplicare,B per dividere, C per una stringa o D per uscire\n");
+                rewind(stdin);
+                break;
+        }
+      } while(scelta != 'A' || scelta != 'C' || scelta !='B'|| scelta != 'D' ) ;/*la condizione del while*/
+
+return 0; //Quanto un programma è terminato
+
+}
+
+
+
+void menu ()
+{
+        printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+        printf ("Come posso aiutarti?\n"); 
+        printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\nD >> Per uscire\n");
+
+}
+ 
+
+void moltiplica ()
+{
+        int  a,b = 0; /*Qui ho scelto di lasciare la variabile int e non short int*/
+        printf ("Inserisci i due numeri da moltiplicare:");
+        scanf ("%d", &a);
+        scanf ("%d", &b);
+
+        int prodotto = a * b;
+
+        printf ("Il prodotto tra %d e %d e': %d", a,b,prodotto);
+}
+ 
+
+void dividi ()
+{
+        float  a,b=0 ;/*qui ho cambiato la variabile in una variabile che mi 
+                        sembrava piu opportuna per una divisione*/
+        printf ("Inserisci il numeratore:");
+        scanf ("%f", &a);
+        printf ("Inserisci il denumeratore:");
+        scanf ("%f", &b);
+
+        float  divisione = a / b;
+
+        printf ("La divisione tra %f e %f e': %f", a,b,divisione);
+}
+ 
+
+
+
+
+void ins_string () 
+{
+        char stringa[10];/*In questo caso ho aggiunto  un fgets che controlla e limita 
+                           il numero di caratteri che possono essere inseriti, ed un altro printf che mi restituirà il valore digitato dall'utente>
+        printf ("Inserisci la stringa, massimo 10 caratteri:\n");
+        fgets(stringa , 10,stdin);
+        scanf ("%s", &stringa);
+        printf("Questa e' la tua stringa\n %s", stringa);
+}
+ 
+
